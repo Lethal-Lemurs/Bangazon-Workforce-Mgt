@@ -8,7 +8,7 @@ Not doing this causes the following error.
   Using environment "development".
   sequelize deprecated String based operators are now deprecated. Please use Symbol based operators for better security, read more at http://docs.sequelizejs.com/manual/tutorial/querying.html#operators node_modules/sequelize/lib/sequelize.js:236:13
 
-  >ERROR: password authentication failed for user "user"
+  >ERROR: password authentication failed for user "postgres"
 
 Example :
 ```javascript
