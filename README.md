@@ -3,7 +3,7 @@
 ## Linux
 In your config.json file add your current user and the password you use to access that user with psql. 
 
-- Example.
+>Example
 ```javascript
 "development": {
     "username": "vm",
