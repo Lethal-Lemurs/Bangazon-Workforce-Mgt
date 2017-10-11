@@ -8,8 +8,10 @@ module.exports = function(sequelize, DataTypes) {
   }, {timestamps: false});
 
   // Computer.associate = (models) => {
-
+  //   Computer.hasOne(models.employee, {
+  //     foreignKey: 'employeeId'
+  //   });
   // };
 
-  return Computers;
+  return Computer;
 };

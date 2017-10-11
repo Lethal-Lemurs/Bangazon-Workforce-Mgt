@@ -1,7 +1,7 @@
 {
   "name": "banagzon-workforce-management",
   "version": "1.0.0",
-  "description": "",
+  "description": "HR and IT support",
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js",
@@ -17,6 +17,7 @@
     "pg": "^7.3.0",
     "pg-hstore": "^2.3.2",
     "pug": "^2.0.0-rc.4",
+    "pug-bootstrap": "0.0.15",
     "sequelize": "^4.13.5"
   }
 }
