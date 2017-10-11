@@ -1,0 +1,19 @@
+{
+  "computers": [
+    {
+      "manufacturer": "Apple",
+      "make": "Macbook Pro 2015",
+      "purchase_date": "11-28-2015"
+    },
+    {
+      "manufacturer": "Windows",
+      "make": "Surface Pro 4",
+      "purchase_date": "10-15-2015"
+    },
+    {
+      "manufacturer": "Dell",
+      "make": "Shitty PC",
+      "purchase_date": "09-10-2012"
+    }
+  ]
+}
