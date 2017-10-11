@@ -11,4 +11,5 @@ html(lang="en")
     .employee#coms
       ul
         each employee in employees
-          li #{employee.first_name} #{employee.last_name}
+          li Name: #{employee.first_name} #{employee.last_name} 
+          | Department: #{employee.department}

@@ -14,3 +14,4 @@ module.exports = (sequelize, DataTypes) => {
 
   return Employees;
 };
+
