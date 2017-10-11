@@ -1,0 +1,13 @@
+{
+  "departments": [
+    {
+      "name": "IT"
+    },
+    {
+      "name": "HR"
+    },
+    {
+      "name": "Janitor"
+    }
+  ]
+}
