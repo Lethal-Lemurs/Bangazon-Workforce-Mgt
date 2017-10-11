@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   var Employees = sequelize.define('Employees', {
     first_name: DataTypes.STRING,
@@ -13,3 +14,4 @@ module.exports = (sequelize, DataTypes) => {
 
   return Employees;
 };
+
