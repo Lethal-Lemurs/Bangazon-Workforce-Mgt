@@ -4,15 +4,13 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title Bangazon Computers
+    title Bangazon Departments
   body
     include ./nav
-    h1 Computers
-    button#create new computer
+    h1 Departments
+    button#create new department    
     .computer#coms
       ul
-        each computer in computers
-          -let url = `http://localhost:8080/computer/` + computer.id
-          a(href=url) #{computer.make}
-          br
-          
+        each department in departments
+          -let url = `http://localhost:8080/department/` + department.id
+          a(href=url) #{department.name}
