@@ -1,8 +1,8 @@
 'use strict'
 
 module.exports.getComputers = (req, res, next) => {
-  const { Computer } = req.app.get('models');
-  Computer.findAll() // love those built-in Sequelize methods
+  const { Computers } = req.app.get('models');
+  Computers.findAll() // love those built-in Sequelize methods
   .then( (computers) => {
     res.render('index', {computers});
   })
