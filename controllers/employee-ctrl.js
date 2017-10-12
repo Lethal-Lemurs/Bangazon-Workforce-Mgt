@@ -30,7 +30,7 @@ module.exports.editOneEmployee = (req, res, next) => {
   Employees.findById(req.params.id)
   .then( (data) => {
     console.log("DATA!!!", data);
-    let func = req.body ? 
+    // let func = req.body ? 
     const {dataValues} = data;
     let employees = [dataValues];
     res.render('employees', {employees});

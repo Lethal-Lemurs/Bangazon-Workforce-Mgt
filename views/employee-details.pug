@@ -9,7 +9,8 @@ html(lang="en")
   body
     //-TODO: get route params however it's done with pug then use to get the employees via it's id and
     //-display the details and forms to edit
-    form(action="/", method="POST")
+
+    form(method="POST" action="/employees?_method=PUT")
       label(for="first_name") Employee First Name:
       input(type="text", name="first_name")
       br
