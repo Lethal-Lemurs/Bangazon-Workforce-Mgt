@@ -5,16 +5,16 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Bangazon Employees
-  body
     include ./nav
+  body
     h1 Employees
-     button#create new employee
+    button#create new employee
     .employee#emps
       ul
         each employee in employees
           -let url = `http://localhost:8080/employees/` + employee.id
           a(href=url) #{employee.first_name} #{employee.last_name}
-          | Department: #{employee.department}
-         
+          br 
+          p Department: #{employee.department}
+        //-so we can do this another way using req.params.id and passing that in
 
-          

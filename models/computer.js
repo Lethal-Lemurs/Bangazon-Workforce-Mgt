@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(sequelize, DataTypes) {
-  var Computer = sequelize.define('Computers', {
+  var Computers = sequelize.define('Computers', {
     manufacturer: DataTypes.STRING,
     make: DataTypes.STRING,
     purchase_date: DataTypes.DATEONLY
@@ -13,5 +13,5 @@ module.exports = function(sequelize, DataTypes) {
   //   });
   // };
 
-  return Computer;
+  return Computers;
 };

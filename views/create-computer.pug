@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Create Computer
+    include ./nav 
+  body
+    //-need correct route for action
+    form(action="/", method="POST")
+      label(for="manufacturer") Manufacturer:
+      input(type="text", name="manufacturer")
+      br
+      label(for="make") Computer:
+      input(type="text", name="make")
+      br
+      label(for="purchase_date") Purchase Date:
+      input(type="date", name="purchase_date") 
+      br
+      button(type="submit") New Computer
