@@ -12,7 +12,7 @@ html(lang="en")
     .department#coms
       ul
         each department in departments
-          -let url = `http://localhost:8080/department/` + department.id
+          -let url = `http://localhost:8080/departments/` + department.id
           a(href=url) #{department.name}
           br
 
