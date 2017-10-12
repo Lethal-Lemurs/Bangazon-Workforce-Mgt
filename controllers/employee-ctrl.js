@@ -1,5 +1,7 @@
 'use strict'
 
+let id;
+
 module.exports.getEmployees = (req, res, next) => {
   const { Employees } = req.app.get('models');
   Employees.findAll()
@@ -12,12 +14,14 @@ module.exports.getEmployees = (req, res, next) => {
 };
 
 module.exports.getOneEmployee = (req, res, next) => {
-  const { Employees } = req.app.get('models');
-  Employees.findById(req.params.id)
+  const { Employees, Departments } = req.app.get('models');
+  Employees.findOne({where: {id: req.params.id}, include: [{model: Departments}] })
   .then( (data) => {
     const {dataValues} = data;
-    let employees = [dataValues];
-    res.render('employees-details', {employees});
+    let employee = dataValues;
+    console.log("DATA VAL", dataValues);
+    id = req.params.id;
+    res.render('employees-details', {employee});
   })
   .catch( (err) => {
     console.log('error!')
@@ -27,15 +31,16 @@ module.exports.getOneEmployee = (req, res, next) => {
 
 module.exports.editOneEmployee = (req, res, next) => {
   // getOneEmployee();
-  console.log("REQ", req.body)
-  const { Employees } = req.app.put('models');
-  Employees.findById(req.params.id)
+  const { Employees } = req.app.get('models');
+  console.log("id", id);
+  console.log(req.body);
+  Employees.findById(id)
   .then( (data) => {
+    
     console.log("DATA!!!", data);
-    // let func = req.body ? 
-    const {dataValues} = data;
-    let employees = [dataValues];
-    res.redirect('/employees-details:id');
+    // let func = req.body ?
+    // res.redirect(`/employees-details/${id}`);
+    res.redirect('/employees');
   })
   .catch( (err) => {
     console.log('error!')

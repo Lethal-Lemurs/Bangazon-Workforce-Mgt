@@ -11,12 +11,12 @@ html(lang="en")
     //-display the details and forms to edit
 
     //- form(method="POST" action="/employees-details")
-    form(method="POST" action="/employees-details:id?_method=PUT")
+    form(method="POST" action=`/employees-details/${employee.id}?_method=PUT`)
       label(for="first_name") Employee First Name:
-      input(type="text", name="first_name")
+      input(value=employee.first_name, type="text", name="first_name")
       br
       label(for="last_name") Employee Last Name:
-      input(type="text", name="last_name")
+      input(value=employee.last_name, type="text", name="last_name")
       br
       label(for="start_date") Start Date:
       input(type="date", name="start_date") 

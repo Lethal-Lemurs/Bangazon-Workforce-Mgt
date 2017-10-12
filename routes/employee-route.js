@@ -8,7 +8,7 @@ const { getEmployees, getOneEmployee, editOneEmployee } = require('../controller
 // When the request is a GET on the employees route, call get employees
 router.get('/employees', getEmployees);
 router.get('/employees-details/:id', getOneEmployee);
-router.post('/employees-details/:id', editOneEmployee);
+router.put('/employees-details/:id', editOneEmployee);
 // router.get('/employees-details:id', );
 
 
