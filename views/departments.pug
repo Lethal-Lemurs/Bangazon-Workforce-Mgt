@@ -5,6 +5,7 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Bangazon Departments
+<<<<<<< HEAD
     include ./nav
   body
     h1 Departments
@@ -14,3 +15,12 @@ html(lang="en")
         each department in departments
           -let url = `http://localhost:8080/department/` + department.id
           a(href=url) #{department.name}
+=======
+  body
+    include ./nav
+    h1 Departments
+    .department#coms
+      ul
+        each department in departments
+          li Department: #{department.name}
+>>>>>>> master
