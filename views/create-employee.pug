@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Create Employee
+    include ./nav 
+  body
+    //-will need department info for selecting employee department and route for the action
+    form(action="/", method="POST")
+      label(for="first_name") Employee First Name:
+      input(type="text", name="first_name")
+      br
+      label(for="last_name") Employee Last Name:
+      input(type="text", name="last_name")
+      br
+      label(for="start_date") Start Date:
+      input(type="date", name="start_date") 
+      br
+      label(for="department") Department:
+      select(name="department")
+        option(value="-select-" disabled)
+        each department in departments
+        option(value=`${department}`)
+      button(type="submit") New Employee
