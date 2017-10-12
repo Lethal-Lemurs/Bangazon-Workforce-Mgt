@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Computer Details
+    include ./nav
+  body
+
+    //-TODO: get route params however it's done with pug then use to get the computer via it's id and
+    //-display the details and forms to edit
+    //-Have to get the information and use it to populate the form before sending back edited info. 
+    //-Can use a turney statement to check for populated info and know which function to call.
+    //-input === key value pairs for bodyparser
+    //-can use a _partial for the create and edit form.
+    form(action="/", method="POST")
+      label(for="computer") Computer:
+      input(type="text", name="computer")
+      br
+      label(for="manufacturer") Manufacturer:
+      input(type="text", name="manufacturer")
+      br
+      label(for="purchase_date") Purchase Date:
+      input(type="date", name="purchase_date") 
+      br
+      button#computer Edit
+          
+    
