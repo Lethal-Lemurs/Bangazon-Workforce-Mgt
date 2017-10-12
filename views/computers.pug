@@ -8,22 +8,9 @@ html(lang="en")
     include ./nav
   body
     h1 Computers
-    button#create new computer
-    .computer#coms
+    
       ul
         each computer in computers
-          -let url = `http://localhost:8080/computer/` + computer.id
-          a(href=url) #{computer.make}
-          br
-    //-need correct route for action but this is not where the form is intended to end up
-    form(action="/postComputer", method="POST")
-      label(for="computer") Computer:
-      input(type="text", name="computer")
-      br
-      label(for="manufacturer") Manufacturer:
-      input(type="text", name="manufacturer")
-      br
-      label(for="purchase_date") Purchase Date:
-      input(type="date", name="purchase_date") 
-      br
-      button(type="submit") New Computer
+          li #{computer.make}
+
+a(href="/postComputer") Add a new computer

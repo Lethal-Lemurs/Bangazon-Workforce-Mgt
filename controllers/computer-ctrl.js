@@ -2,11 +2,31 @@
 
 module.exports.getComputers = (req, res, next) => {
   const { Computers } = req.app.get('models');
-  Computers.findAll() // love those built-in Sequelize methods
+  Computers.findAll()
   .then( (computers) => {
     res.render('computers', {computers});
   })
   .catch( (err) => {
-    next(err); //Ship this nastyness off to our error handler at the bottom of the middleware stack in app.js
+    next(err); 
   });
 };
+
+module.exports.displayNewComputerForm = (req, res, next) => {
+  res.render('add-computer');
+}
+
+// POST for computers by glen
+module.exports.postComputer = (req, res, next) => {
+  const { Computers } = req.app.get('models');
+  Computers.create({
+    manufacturer: req.body.manufacturer,
+    make: req.body.make,
+    purchase_date: new Date()
+  })
+  .then(() => {
+   res.redirect('/computers');
+  })
+  .catch( (err) => {
+    console.log(err);
+  }) 
+}
