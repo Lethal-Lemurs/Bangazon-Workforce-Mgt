@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     department: DataTypes.INTEGER
   }, {timestamps: false});
 
+  // js
   Employee.associate = function(models) {
     Employee.belongsTo(models.Department, {
       foreignKey: 'departmentId',

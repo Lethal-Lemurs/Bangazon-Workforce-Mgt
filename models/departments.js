@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING
   }, {timestamps: false});
 
+  // js
   Department.associate = function(models) {
     Department.hasMany(models.Employee, {
       foreignKey: 'departmentId'
