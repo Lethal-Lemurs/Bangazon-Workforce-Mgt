@@ -6,6 +6,11 @@ module.exports = function(sequelize, DataTypes) {
     make: DataTypes.STRING,
     purchase_date: DataTypes.DATEONLY
   }, {timestamps: false});
-
+  // js
+  Computer.associate = function(models) {
+    Computer.belongsToMany(models.Employee, {
+      through: 'EmployeesComputers'
+    });
+  }
   return Computer;
 };

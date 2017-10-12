@@ -14,6 +14,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'departmentId',
       onDelete: 'CASCADE'
     });
+  // js
+    Employee.belongsToMany(models.Computer, {
+      as: 'assigned_computer',
+      through: 'EmployeesComputers'
+    });
   };
 
   return Employee;
