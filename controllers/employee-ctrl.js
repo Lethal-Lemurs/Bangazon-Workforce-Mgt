@@ -4,7 +4,6 @@ module.exports.getEmployees = (req, res, next) => {
   const { Employees } = req.app.get('models');
   Employees.findAll()
   .then( (employees) => {
-    console.log("GETALL", employees)
     res.render('employees', {employees});
   })
   .catch( (err) => {
@@ -18,12 +17,10 @@ module.exports.getOneEmployee = (req, res, next) => {
   .then( (data) => {
     const {dataValues} = data;
     let employees = [dataValues];
-    console.log("employees", employees);
-
     res.render('employees', {employees});
   })
   .catch( (err) => {
-    console.log('errrrr!')
+    console.log('error!')
     next(err);
   });
 };
