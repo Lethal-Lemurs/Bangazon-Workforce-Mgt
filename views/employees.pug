@@ -4,12 +4,17 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title Bangazon employees
+    title Bangazon Employees
   body
     include ./nav
     h1 Employees
-    .employee#coms
+     button#create new employee
+    .employee#emps
       ul
         each employee in employees
-          li Name: #{employee.first_name} #{employee.last_name} 
+          -let url = `http://localhost:8080/employees/` + employee.id
+          a(href=url) #{employee.first_name} #{employee.last_name}
           | Department: #{employee.department}
+         
+
+          
