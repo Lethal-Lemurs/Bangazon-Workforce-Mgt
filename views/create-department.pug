@@ -7,4 +7,9 @@ html(lang="en")
     title Create Department
     include ./nav 
   body
-    //-TODO: Use forms to post to departments
+    //-need route for action
+    form(action="/", method="POST")
+    label(for="department") Department:
+    input(type="text", name="department")
+    br
+    button(type="submit") New Department
