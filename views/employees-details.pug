@@ -10,7 +10,8 @@ html(lang="en")
     //-TODO: get route params however it's done with pug then use to get the employees via it's id and
     //-display the details and forms to edit
 
-    form(method="POST" action="/employees?_method=PUT")
+    //- form(method="POST" action="/employees-details")
+    form(method="POST" action="/employees-details:id?_method=PUT")
       label(for="first_name") Employee First Name:
       input(type="text", name="first_name")
       br
@@ -21,9 +22,9 @@ html(lang="en")
       input(type="date", name="start_date") 
       br
       label(for="department") Department:
-      select(name="department")
-        option(value="-select-" disabled)
-        each department in departments
-        option(value=`${department}`)
+      //- select(name="department")
+      //-   option(value="-select-" disabled)
+      //-   each department in departments
+      //-   option(value=`${department}`)
       button(type="submit") Edit
     

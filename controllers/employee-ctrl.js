@@ -17,7 +17,7 @@ module.exports.getOneEmployee = (req, res, next) => {
   .then( (data) => {
     const {dataValues} = data;
     let employees = [dataValues];
-    res.render('employees', {employees});
+    res.render('employees-details', {employees});
   })
   .catch( (err) => {
     console.log('error!')
@@ -26,6 +26,8 @@ module.exports.getOneEmployee = (req, res, next) => {
 };
 
 module.exports.editOneEmployee = (req, res, next) => {
+  // getOneEmployee();
+  console.log("REQ", req.body)
   const { Employees } = req.app.put('models');
   Employees.findById(req.params.id)
   .then( (data) => {
@@ -33,7 +35,7 @@ module.exports.editOneEmployee = (req, res, next) => {
     // let func = req.body ? 
     const {dataValues} = data;
     let employees = [dataValues];
-    res.render('employees', {employees});
+    res.redirect('/employees-details:id');
   })
   .catch( (err) => {
     console.log('error!')

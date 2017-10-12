@@ -14,7 +14,7 @@ html(lang="en")
     //-Can use a turney statement to check for populated info and know which function to call.
     //-input === key value pairs for bodyparser
     //-can use a _partial for the create and edit form.
-    form(action="/", method="POST")
+    form(action="/employees-details/:id", method="POST")
       label(for="computer") Computer:
       input(type="text", name="computer")
       br
