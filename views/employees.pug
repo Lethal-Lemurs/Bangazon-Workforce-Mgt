@@ -14,6 +14,7 @@ html(lang="en")
         each employee in employees
           -let url = `http://localhost:8080/employees/` + employee.id
           a(href=url) #{employee.first_name} #{employee.last_name}
-          | Department: #{employee.department}
+          br 
+          p Department: #{employee.department}
         //-so we can do this another way using req.params.id and passing that in
 
