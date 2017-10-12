@@ -1,8 +1,8 @@
 'use strict'
 
 module.exports.getComputers = (req, res, next) => {
-  const { Computers } = req.app.get('models');
-  Computers.findAll()
+  const { Computer } = req.app.get('models');
+  Computer.findAll()
   .then( (computers) => {
     res.render('computers', {computers});
   })
@@ -17,8 +17,8 @@ module.exports.displayNewComputerForm = (req, res, next) => {
 
 // POST for computers by glen
 module.exports.postComputer = (req, res, next) => {
-  const { Computers } = req.app.get('models');
-  Computers.create({
+  const { Computer } = req.app.get('models');
+  Computer.create({
     manufacturer: req.body.manufacturer,
     make: req.body.make,
     purchase_date: new Date()
