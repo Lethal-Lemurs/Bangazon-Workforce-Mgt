@@ -9,3 +9,8 @@ html(lang="en")
   body
     //-TODO: get route params however it's done with pug then use to get the department via it's id and
     //-display the details and forms to edit
+    form(action="/", method="POST")
+      label(for="name") Department:
+      input(type="text", name="name")
+      br
+      button(type="submit") Edit
