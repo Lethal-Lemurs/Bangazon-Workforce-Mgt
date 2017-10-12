@@ -8,10 +8,6 @@ module.exports = (sequelize, DataTypes) => {
     department: DataTypes.INTEGER
   }, {timestamps: false});
 
-  // Employees.associate = (models) => {
-
-  // };
-
   return Employees;
 };
 
