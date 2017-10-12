@@ -4,7 +4,7 @@
 
 | Tuesday Oct. 10	| Wednesday Oct. 11 | Thursday Oct. 12 | Friday Oct. 13 | Monday Oct. 16 |
 |-----------------|-------------------|------------------|----------------|----------------|
-| plan            |                   |      	           |                |                |
+| plan            | get one employee  | edit an employee |                |                |
 |                 |                   |      	           |                |                |
 
 ### Glen
