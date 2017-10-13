@@ -14,6 +14,6 @@ html(lang="en")
           -let url = `http://localhost:8080/employees-details/` + employee.id
           a(href=url) #{employee.first_name} #{employee.last_name}
           br 
-          p Department: #{employee.department}
+          //- p Department: #{employee.department}
         //-so we can do this another way using req.params.id and passing that in
     a(href="/postEmployee") Add a new Employee
