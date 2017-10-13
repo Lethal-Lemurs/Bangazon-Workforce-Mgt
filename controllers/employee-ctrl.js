@@ -1,8 +1,10 @@
 'use strict'
 
+// const { getDepartments } = require('../controllers/department-ctrl');
+
 module.exports.getEmployees = (req, res, next) => {
-  const { Employees } = req.app.get('models');
-  Employees.findAll()
+  const { Employee } = req.app.get('models');
+  Employee.findAll()
   .then( (employees) => {
     res.render('employees', {employees});
   })
@@ -42,19 +44,37 @@ module.exports.editOneEmployee = (req, res, next) => {
   })
   .catch( (err) => {
     console.log('error!')
+  })
+};
+
+module.exports.displayNewEmployeeForm = (req, res, next) => {
+  const { Department } = req.app.get('models');
+  Department.findAll() 
+  .then( (departments) => {
+    res.render('create-employee', {
+      departments
+    });
+  })
+  .catch( (err) => {
     next(err);
   });
 };
 
-// app.put('/users/:id', (req, res, next) => {
-//   User.findById(req.params.id)
-//   .then( (foundUser) => {
-//     console.log('User\'s full name', foundUser.getFullName() );
-
-//     let func = req.body.ShowId ? 'addFavorite' : 'update';
-//     foundUser[func](req.body.ShowId || req.body)
-//     .then( (stuff) => {
-//       res.status(201).json(stuff);
-//     });
-//   });
-// });
+module.exports.postEmployee = (req, res, next) => {
+  // let dropdown = document.getElementById('dropdown');
+  // let dropdownValue = dropdown.options[dropdown.selectedIndex].value
+  const { Employees } = req.app.get('models');
+  Employees.create({
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    start_date: new Date(),
+    department: 1
+    // computer: req.body.computer
+  })
+  .then( () => {
+    res.redirect('employees');
+  })
+  .catch( (err) => {
+    console.log(err);    
+  })
+}

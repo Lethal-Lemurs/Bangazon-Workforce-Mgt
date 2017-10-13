@@ -1,8 +1,8 @@
 'use strict'
 
 module.exports.getDepartments = (req, res, next) => {
-  const { Departments } = req.app.get('models');
-  Departments.findAll() 
+  const { Department } = req.app.get('models');
+  Department.findAll() 
   .then( (departments) => {
     res.render('departments', {departments});
   })

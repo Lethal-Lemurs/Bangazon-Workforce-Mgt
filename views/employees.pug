@@ -8,8 +8,7 @@ html(lang="en")
     include ./nav
   body
     h1 Employees
-    button#create new employee
-    .employee#emps
+
       ul
         each employee in employees
           -let url = `http://localhost:8080/employees-details/` + employee.id
@@ -17,4 +16,4 @@ html(lang="en")
           br 
           p Department: #{employee.department}
         //-so we can do this another way using req.params.id and passing that in
-
+    a(href="/postEmployee") Add a new Employee
