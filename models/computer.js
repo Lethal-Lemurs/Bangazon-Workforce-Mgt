@@ -7,5 +7,13 @@ module.exports = function(sequelize, DataTypes) {
     purchase_date: DataTypes.DATEONLY
   }, {timestamps: false});
 
+  Computer.associate = function(model) {
+    Computer.belongsTo(models.Employee, {
+      foreignKey: employeeId,
+      as: 'Employees Computer',
+      through: 'EmployeeComputer'
+    });
+  };
+
   return Computer;
 };

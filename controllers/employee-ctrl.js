@@ -67,8 +67,8 @@ module.exports.editOneEmployee = (req, res, next) => {
 module.exports.postEmployee = (req, res, next) => {
   // let dropdown = document.getElementById('dropdown');
   // let dropdownValue = dropdown.options[dropdown.selectedIndex].value
-  const { Employees } = req.app.get('models');
-  Employees.create({
+  const { Employee } = req.app.get('models');
+  Employee.create({
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     start_date: new Date(),
