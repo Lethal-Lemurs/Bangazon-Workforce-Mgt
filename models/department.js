@@ -2,15 +2,12 @@
 module.exports = (sequelize, DataTypes) => {
   var Department = sequelize.define('Department', {
     name: DataTypes.STRING
-  }, {timestamps: false});
+  }, 
+  {underscored: true, timestamps: false});
 
   // js
   Department.associate = function(models) {
-    Department.hasMany(models.Employee, {
-      foreignKey: 'departmentId',
-      as: 'Employees',
-      through: 'EmployeeDeptartment'
-    });
+    Department.hasMany(models.Employee);
   };
 
   return Department;

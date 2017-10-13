@@ -16,6 +16,9 @@ module.exports = {
       },
       start_date: {
         type: Sequelize.DATEONLY
+      },
+      department_id: {
+        type: Sequelize.INTEGER
       }
     });
   },
