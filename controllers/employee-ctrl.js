@@ -14,13 +14,14 @@ module.exports.getEmployees = (req, res, next) => {
 };
 
 module.exports.getOneEmployee = (req, res, next) => {
-  const { Employees, Departments } = req.app.get('models');
-  Employees.findOne({where: {id: req.params.id}, include: [{model: Departments}] })
+  const { Employee, Department } = req.app.get('models');
+  console.log("ID", req.params.id);
+  
+  Employee.findOne({where: {id: req.params.id}, include: [{model: Department}] })
   .then( (data) => {
     const {dataValues} = data;
     let employee = dataValues;
     console.log("DATA VAL", dataValues);
-    id = req.params.id;
     res.render('employees-details', {employee});
   })
   .catch( (err) => {
@@ -30,11 +31,8 @@ module.exports.getOneEmployee = (req, res, next) => {
 };
 
 module.exports.editOneEmployee = (req, res, next) => {
-  // getOneEmployee();
-  const { Employees } = req.app.get('models');
-  console.log("id", id);
-  console.log(req.body);
-  Employees.findById(id)
+  const { Employee } = req.app.get('models');
+  Employee.findById(req.params.id)
   .then( (data) => {
     
     console.log("DATA!!!", data);
