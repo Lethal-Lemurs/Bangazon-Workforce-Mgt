@@ -5,7 +5,6 @@ module.exports = (sequelize, DataTypes) => {
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
     start_date: DataTypes.DATEONLY,
-    department: DataTypes.INTEGER
   }, {timestamps: false});
 
   // js
