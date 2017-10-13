@@ -8,19 +8,17 @@ html(lang="en")
     include ./nav 
   body
     //-will need department info for selecting employee department and route for the action
-    form(action="/", method="POST")
+    form(action="/postEmployee", method="POST")
       label(for="first_name") Employee First Name:
       input(type="text", name="first_name")
       br
       label(for="last_name") Employee Last Name:
       input(type="text", name="last_name")
       br
-      label(for="start_date") Start Date:
-      input(type="date", name="start_date") 
-      br
       label(for="department") Department:
-      select(name="department")
-        option(value="-select-" disabled)
+      select#dropdown
+        //- option(value="-select-" disabled)
         each department in departments
-        option(value=`${department}`)
+          option(value=department.id) #{department.name}
+      br    
       button(type="submit") New Employee
