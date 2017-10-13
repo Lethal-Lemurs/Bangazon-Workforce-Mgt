@@ -48,7 +48,7 @@ module.exports.postEmployee = (req, res, next) => {
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     start_date: new Date(),
-    department: "shit"
+    department: 1
     // computer: req.body.computer
   })
   .then( () => {
