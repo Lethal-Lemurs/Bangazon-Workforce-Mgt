@@ -27,12 +27,19 @@ module.exports.displayNewEmployeeForm = (req, res, next) => {
 };
 
 module.exports.getOneEmployee = (req, res, next) => {
-  const { Employee, Department } = req.app.get('models');  
+  const { Employee, Department } = req.app.get('models'); 
   Employee.findOne({where: {id: req.params.id}, include: [{model: Department}] })
   .then( (data) => {
-    const {dataValues} = data;
-    let employee = dataValues;
-    res.render('employees-details', {employee});
+    Department.findAll()
+    .then( (departments) => {
+      const {dataValues} = data;
+      let employee = dataValues;
+      res.render('employees-details', {employee, departments});
+      })
+      .catch( (err) => {
+        console.log('error!')
+        next(err);
+      })
   })
   .catch( (err) => {
     console.log('error!')
@@ -41,7 +48,7 @@ module.exports.getOneEmployee = (req, res, next) => {
 };
 
 module.exports.editOneEmployee = (req, res, next) => {
-  const { Employee } = req.app.get('models');
+  const { Employee, Department } = req.app.get('models');
     Employee.update({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
