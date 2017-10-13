@@ -8,8 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   Department.associate = function(models) {
     Department.hasMany(models.Employee, {
       foreignKey: 'departmentId',
-      as: 'Employees',
-      through: 'EmployeeDeptartment'
+      as: 'Employees'
     });
   };
 
