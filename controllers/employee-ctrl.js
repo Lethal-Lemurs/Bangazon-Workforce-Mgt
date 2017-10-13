@@ -3,8 +3,8 @@
 // const { getDepartments } = require('../controllers/department-ctrl');
 
 module.exports.getEmployees = (req, res, next) => {
-  const { Employees } = req.app.get('models');
-  Employees.findAll()
+  const { Employee } = req.app.get('models');
+  Employee.findAll()
   .then( (employees) => {
     res.render('employees', {employees});
   })
@@ -14,8 +14,8 @@ module.exports.getEmployees = (req, res, next) => {
 };
 
 module.exports.getOneEmployee = (req, res, next) => {
-  const { Employees } = req.app.get('models');
-  Employees.findById(req.params.id)
+  const { Employee } = req.app.get('models');
+  Employee.findById(req.params.id)
   .then( (data) => {
     const {dataValues} = data;
     let employees = [dataValues];
