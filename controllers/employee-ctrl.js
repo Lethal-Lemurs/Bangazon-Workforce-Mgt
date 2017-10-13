@@ -28,8 +28,8 @@ module.exports.getOneEmployee = (req, res, next) => {
 };
 
 module.exports.displayNewEmployeeForm = (req, res, next) => {
-  const { Departments } = req.app.get('models');
-  Departments.findAll() 
+  const { Department } = req.app.get('models');
+  Department.findAll() 
   .then( (departments) => {
     res.render('create-employee', {
       departments
