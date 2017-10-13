@@ -1,7 +1,5 @@
 'use strict'
 
-let id;
-
 module.exports.getEmployees = (req, res, next) => {
   const { Employees } = req.app.get('models');
   Employees.findAll()
