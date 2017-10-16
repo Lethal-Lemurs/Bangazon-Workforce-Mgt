@@ -5,6 +5,7 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Create Employee
+    script(src='/javascripts/main.js')
     include ./nav 
   body
     //-will need department info for selecting employee department and route for the action
@@ -16,9 +17,10 @@ html(lang="en")
       input(type="text", name="last_name")
       br
       label(for="department") Department:
-      select#dropdown
+      select(class="selectval", name="selectval")
         //- option(value="-select-" disabled)
         each department in departments
           option(Qvalue=department.id) #{department.name}
       br    
-      button(type="submit") New Employee
+      button#button(type="submit") New Employee
+

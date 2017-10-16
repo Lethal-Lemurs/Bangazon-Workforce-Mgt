@@ -7,8 +7,6 @@ let bodyParser = require('body-parser');
 require('dotenv').config();
 const port = process.env.PORT || 8080
 
-//glen got this from stackoverflow https://stackoverflow.com/questions/31435539/posting-form-data-with-nodejs-and-body-parser
-
 // using require('./models') to get the models may create more than one connection to the database. To avoid that, the models variable must be somehow singleton-esque. This can be achieved by attaching the models module to the application:
 app.set('models', require('./models')); //pulls in models/index.js by default. Index exports all the models you define in the models folder. So cool.
 // And when you need to require a class of the model in a controller, use this insise a middleware function rather than a direct import:
@@ -20,7 +18,8 @@ app.locals.globalWow = "Express is, like, MAGIC"; //If we end up needing some va
 let routes = require('./routes/');
 
 // Begin middleware stack
-app.use(bodyParser.urlencoded({ extended: false }));
+//glen got this from stackoverflow https://stackoverflow.com/questions/31435539/posting-form-data-with-nodejs-and-body-parser
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 app.use(routes);
