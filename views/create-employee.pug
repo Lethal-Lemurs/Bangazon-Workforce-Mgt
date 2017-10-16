@@ -20,7 +20,7 @@ html(lang="en")
       select(class="selectval", name="selectval")
         //- option(value="-select-" disabled)
         each department in departments
-          option(Qvalue=department.id) #{department.name}
+          option(value=department.id) #{department.name}
       br    
       button#button(type="submit") New Employee
 
