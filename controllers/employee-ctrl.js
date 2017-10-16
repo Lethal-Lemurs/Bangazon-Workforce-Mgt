@@ -51,7 +51,7 @@ module.exports.editOneEmployee = (req, res, next) => {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       start_date: req.body.start_date,
-      department_id: req.body.department_id
+      department_id: req.body.selectval
     }, {where: {id: req.params.id}})
     .then(() => {
       res.redirect('/employees');
