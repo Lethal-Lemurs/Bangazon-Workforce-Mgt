@@ -8,8 +8,10 @@ require('dotenv').config();
 const port = process.env.PORT || 8080
 
 //glen got this from stackoverflow https://stackoverflow.com/questions/31435539/posting-form-data-with-nodejs-and-body-parser
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(express.static(__dirname +"/public"));
 
 // using require('./models') to get the models may create more than one connection to the database. To avoid that, the models variable must be somehow singleton-esque. This can be achieved by attaching the models module to the application:
 app.set('models', require('./models')); //pulls in models/index.js by default. Index exports all the models you define in the models folder. So cool.
