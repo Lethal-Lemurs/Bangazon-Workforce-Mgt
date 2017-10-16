@@ -11,7 +11,7 @@ html(lang="en")
 
       ul
         each employee in employees
-          -let url = `http://localhost:8080/employees/` + employee.id
+          -let url = `http://localhost:8080/employees-details/` + employee.id
           a(href=url) #{employee.first_name} #{employee.last_name}
           br 
           //- p Department: #{employee.department}
