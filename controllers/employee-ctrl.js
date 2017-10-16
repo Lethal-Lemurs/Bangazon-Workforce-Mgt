@@ -44,34 +44,44 @@ module.exports.getOneEmployee = (req, res, next) => {
     next(err);
   });
 };
-module.exports.editOneEmployee = (req, res, next) => {
-  const { Employee, Department } = req.app.get('models'); 
+
+module.exports.getOneEmployeeForEdit = (req, res, next) => {
+  const { Employee, Department } = req.app.get('models');
+  let employeeData;
   Employee.findOne({where: {id: req.params.id}, include: [{model: Department}] })
   .then( (data) => {
-    Department.findAll()
-    .then( (departments) => {
-      const {dataValues} = data;
-      let employee = dataValues;
-      Employee.update({
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        start_date: req.body.start_date,
-        department_id: req.body.selectval
-      }, {where: {id: req.params.id}})
-      res.render('employees-edit', {employee, departments});
-      })
-      .then( () => {
-        res.redirect('employees');
-      })
-      .catch( (err) => {
-        console.log('error!')
-        next(err);
-      })
+    employeeData = data;
+    return Department.findAll()
+  })
+  .then( (departments) => {
+    const {dataValues: employee} = employeeData;
+    res.render('employees-edit', {employee, departments});
   })
   .catch( (err) => {
     console.log('error!')
     next(err);
-  });
+  })
+};
+
+module.exports.editOneEmployee = (req, res, next) => {
+  const { Employee, Department } = req.app.get('models'); 
+  Employee.findOne({where: {id: req.params.id}, include: [{model: Department}] })
+  .then( (data) => {
+    const {dataValues: employee} = data;
+    Employee.update({
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      start_date: req.body.start_date,
+      department_id: req.body.selectval
+    }, {where: {id: req.params.id}})
+  })
+  .then( () => {
+      res.redirect('/employees');
+  })
+  .catch( (err) => {
+    console.log('error!')
+    next(err);
+  })
 };
 
 // module.exports.editOneEmployee = (req, res, next) => {
