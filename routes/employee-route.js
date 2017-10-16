@@ -8,7 +8,8 @@ const { getEmployees, getOneEmployee, displayNewEmployeeForm, postEmployee, edit
 // When the request is a GET on the employees route, call get employees
 router.get('/employees', getEmployees);
 router.get('/employees-details/:id', getOneEmployee);
-router.put('/employees-details/:id', editOneEmployee);
+router.get('/employees-edit/:id', editOneEmployee);
+router.put('/employees-edit/:id', editOneEmployee);
 router.get('/postEmployee', displayNewEmployeeForm);
 router.post('/postEmployee', postEmployee);
 
