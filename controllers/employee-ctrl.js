@@ -1,7 +1,5 @@
 'use strict'
 
-// const { getDepartments } = require('../controllers/department-ctrl');
-
 module.exports.getEmployees = (req, res, next) => {
   const { Employee } = req.app.get('models');
   Employee.findAll()
@@ -41,14 +39,12 @@ module.exports.displayNewEmployeeForm = (req, res, next) => {
 };
 
 module.exports.postEmployee = (req, res, next) => {
-  // let dropdown = document.getElementById('dropdown');
-  // let dropdownValue = dropdown.options[dropdown.selectedIndex].value
   const { Employee } = req.app.get('models');
   Employee.create({
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     start_date: new Date(),
-    department: 1
+    department_id: req.body.selectval
     // computer: req.body.computer
   })
   .then( () => {
