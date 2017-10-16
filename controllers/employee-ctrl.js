@@ -60,6 +60,9 @@ module.exports.editOneEmployee = (req, res, next) => {
       }, {where: {id: req.params.id}})
       res.render('employees-edit', {employee, departments});
       })
+      .then( () => {
+        res.redirect('employees');
+      })
       .catch( (err) => {
         console.log('error!')
         next(err);

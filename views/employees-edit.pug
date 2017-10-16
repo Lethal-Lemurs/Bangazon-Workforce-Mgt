@@ -25,5 +25,9 @@ html(lang="en")
         //- option(value="-select-" disabled)
         each department in departments
           option(value=department.id) #{department.name}
+      br
       br    
-      button#button(type="submit") Edit Employee
+      button#button(type="submit") Save changes to Employee
+      br
+      br
+      a(href=`/employees`) Return to Employees
