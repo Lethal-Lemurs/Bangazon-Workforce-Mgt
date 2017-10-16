@@ -21,9 +21,9 @@ html(lang="en")
       input(type="date", name="start_date") 
       br
       label(for="department") Department:
-      select#dropdown
-        //- option(value="-select-" disabled)
-        each department in departments
-          option(value=department.id) #{department.name}
+      //- select#dropdown
+      //-   //- option(value="-select-" disabled)
+      //-   each department in departments
+      //-     option(value=department.id) #{department.name}
       br    
       button(type="submit") New Employee

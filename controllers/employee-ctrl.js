@@ -52,8 +52,8 @@ module.exports.editOneEmployee = (req, res, next) => {
     Employee.update({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
-      start_date: new Date(),
-      department: req.body.department
+      start_date: req.body.start_date,
+      department_id: req.body.department_id
     }, {where: {id: req.params.id}})
     .then(() => {
       res.redirect('/employees');
@@ -67,18 +67,23 @@ module.exports.editOneEmployee = (req, res, next) => {
 module.exports.postEmployee = (req, res, next) => {
   // let dropdown = document.getElementById('dropdown');
   // let dropdownValue = dropdown.options[dropdown.selectedIndex].value
-  const { Employee } = req.app.get('models');
+  const { Employee, Department } = req.app.get('models');
+  Department.findAll()
+  .then( (departments) => {
+    console.log("DEPO?", departments)
   Employee.create({
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     start_date: new Date(),
-    department: 1
+    department_id: department.id
     // computer: req.body.computer
   })
-  .then( () => {
-    res.redirect('employees');
-  })
-  .catch( (err) => {
+  }).catch( (err) => {
+    console.log('error!')
+    next(err);
+}).then( () => {
+  res.redirect('employees');
+  }).catch( (err) => {
     console.log(err);    
   })
 }
