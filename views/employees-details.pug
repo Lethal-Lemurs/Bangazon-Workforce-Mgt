@@ -17,6 +17,6 @@ html(lang="en")
       p #{employee.last_name}
       br
       label(for="department") Department:
-      p #{employee.department}
+      p #{employee.Department.dataValues.name}
       br    
       a(href=`/employees-edit/${employee.id}?_method=PUT`) Edit Employee
