@@ -45,6 +45,7 @@ module.exports.getOneEmployee = (req, res, next) => {
   });
 };
 
+// Function written by David with the help of Dominic.
 module.exports.getOneEmployeeForEdit = (req, res, next) => {
   const { Employee, Department } = req.app.get('models');
   let employeeData;
@@ -84,23 +85,6 @@ module.exports.editOneEmployee = (req, res, next) => {
   })
 };
 
-// module.exports.editOneEmployee = (req, res, next) => {
-//   const { Employee, Department } = req.app.get('models');
-//     Employee.update({
-//       first_name: req.body.first_name,
-//       last_name: req.body.last_name,
-//       start_date: req.body.start_date,
-//       department_id: req.body.selectval
-//     }, {where: {id: req.params.id}})
-//     .then(() => {
-//       res.render('employees-edit');
-//     })
-//   .catch( (err) => {
-//     console.log('error!')
-//     next(err);
-//   })
-// };
-
 module.exports.postEmployee = (req, res, next) => {
   const { Employee } = req.app.get('models');
   Employee.create({
@@ -108,7 +92,6 @@ module.exports.postEmployee = (req, res, next) => {
     last_name: req.body.last_name,
     start_date: new Date(),
     department_id: req.body.selectval
-    // computer: req.body.computer
   }).catch( (err) => {
     console.log('error!')
     next(err);
