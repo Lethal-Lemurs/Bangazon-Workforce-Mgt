@@ -15,24 +15,15 @@ module.exports.getOneDepartment = (req, res, next) => {
   const { Department, Employee } = req.app.get('models');
   Department.findOne({where: {id: req.params.id}, include: [{model: Employee}] })
   .then( (data) => {
-    Employee.findAll()
-      .then( (employeeData) => {
       const {dataValues} = data;
       let department = dataValues;
-      // console.log('DEPARTMENT', department.Employees);
       let employees = department.Employees
-      // console.log('EMPLOYEES', employees);
       res.render('department-details', {department, employees});
       })
       .catch( (err) => {
         console.log('error!')
         next(err);
       }); 
-  })
-  .catch( (err) => {
-    console.log('error!')
-    next(err);
-  });
 };
 
 module.exports.displayNewDepartmentForm = (req, res, next) => {
