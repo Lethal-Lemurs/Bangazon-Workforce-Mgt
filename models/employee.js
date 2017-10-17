@@ -17,6 +17,14 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'CASCADE'
     });
   };
+  Employee.associate = function(models) {
+    Employee.hasOne(models.Department, {
+      foreignKey: 'id',
+      // as: 'Employees Department',
+      // through: 'EmployeeDepartment',
+      onDelete: 'CASCADE'
+    });
+  };
 
   return Employee;
 };
