@@ -27,17 +27,9 @@ module.exports.displayNewEmployeeForm = (req, res, next) => {
 module.exports.getOneEmployee = (req, res, next) => {
   const { Employee, Department } = req.app.get('models'); 
   Employee.findOne({where: {id: req.params.id}, include: [{model: Department}] })
-  .then( (data) => {
-    Department.findAll()
-    .then( (departments) => {
-      const {dataValues} = data;
-      let employee = dataValues;
-      res.render('employees-details', {employee, departments});
-      })
-      .catch( (err) => {
-        console.log('error!')
-        next(err);
-      })
+  .then( (empData) => {
+      const {dataValues:employee} = empData;
+      res.render('employees-details', {employee});        
   })
   .catch( (err) => {
     console.log('error!')

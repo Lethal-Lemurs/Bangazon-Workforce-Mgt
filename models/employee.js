@@ -18,10 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
   Employee.associate = function(models) {
-    Employee.hasOne(models.Department, {
-      foreignKey: 'id',
-      // as: 'Employees Department',
-      // through: 'EmployeeDepartment',
+    Employee.belongsTo(models.Department, {
       onDelete: 'CASCADE'
     });
   };
