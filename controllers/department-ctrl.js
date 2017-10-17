@@ -12,17 +12,18 @@ module.exports.getDepartments = (req, res, next) => {
 };
 
 module.exports.getOneDepartment = (req, res, next) => {
-  const { Department } = req.app.get('models');
-  Department.findById(req.params.id)
+  const { Department, Employee } = req.app.get('models');
+  Department.findOne({where: {id: req.params.id}, include: [{model: Employee}] })
   .then( (data) => {
-    const { dataValues } = data;
-    let Departments = [dataValues];
-    res.render('departments', {Departments}); 
-  })
-  .catch( (err) => {
-    console.log('error!')
-    next(err);
-  });
+      const {dataValues} = data;
+      let department = dataValues;
+      let employees = department.Employees
+      res.render('department-details', {department, employees});
+      })
+      .catch( (err) => {
+        console.log('error!')
+        next(err);
+      }); 
 };
 
 module.exports.displayNewDepartmentForm = (req, res, next) => {

@@ -7,10 +7,13 @@ html(lang="en")
     title Department Details
     include ./nav
   body
-    //-TODO: get route params however it's done with pug then use to get the department via it's id and
-    //-display the details and forms to edit
-    form(action="/", method="POST")
-      label(for="name") Department:
-      input(type="text", name="name")
-      br
+
+    h1 #{department.name}
+
+      ul
+        each employee in employees
+          -let url = `http://localhost:8080/employees-details/` + employee.id
+          a(href=url) #{employee.first_name} #{employee.last_name}
+          br 
+
       button(type="submit") Edit
