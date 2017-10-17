@@ -4,12 +4,12 @@
       "first_name": "Dude",
       "last_name": "Guy",
       "start_date": "10-31-2017",
-      "department_id": 3 },
+      "department_id": 3    },
     {
       "first_name": "Ralph",
       "last_name": "Randolph",
       "start_date": "11-21-2016",
-      "department_id": 2   },
+      "department_id": 2    },
     {
       "first_name": "Smelly",
       "last_name": "Dinkle",
